@@ -19,7 +19,7 @@ begin
     if rst = '1' then
       cnt0 := 0;
     elsif rising_edge(clk) then
-      if cnt0 = N-1 then
+      if cnt0 = N then
         cnt0 := 0;
       elsif ena = '1' then
         cnt0 := cnt0 + 1;
