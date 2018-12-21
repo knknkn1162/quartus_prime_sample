@@ -34,13 +34,13 @@ architecture behavior of secs is
     );
   end component;
 
-  constant GEN_N : natural := N; -- 50 MHz
   constant CNT_N : natural := 10;
   constant BITS : natural := 4;
   signal ena : std_logic;
   signal cnt : std_logic_vector(BITS-1 downto 0);
+
 begin
-  enable_generator0 : enable_generator generic map (N=>GEN_N)
+  enable_generator0 : enable_generator generic map (N=>N)
   port map (
     clk => clk, rst => rst,
     ena => ena
