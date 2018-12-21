@@ -10,19 +10,23 @@ entity enable_generator is
 end entity;
 
 architecture behavior of enable_generator is
-  signal cnt : natural range 0 to N-1;
 begin
   process(clk, rst)
+    variable cnt : natural range 0 to N-1;
   begin
     if rst = '1' then
-      cnt <= 0;
+      cnt := 0;
     elsif rising_edge(clk) then
       if cnt = N-1 then
-        cnt <= 0;
+        cnt := 0;
       else
-        cnt <= cnt + 1;
+        cnt := cnt + 1;
       end if;
     end if;
+    if cnt = N-1 then
+      ena <= '1';
+    else
+      ena <= '0';
+    end if;
   end process;
-  ena <= '1' when cnt = N-1 else '0';
 end architecture;
