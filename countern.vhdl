@@ -12,19 +12,19 @@ entity countern is
 end entity;
 
 architecture behavior of countern is
+  signal cnt0 : natural range 0 to N;
 begin
-  process(clk, rst)
-    variable cnt0 : natural range 0 to N-1;
+  process(clk, rst, ena)
   begin
     if rst = '1' then
-      cnt0 := 0;
+      cnt0 <= 0;
     elsif rising_edge(clk) then
       if cnt0 = N then
-        cnt0 := 0;
+        cnt0 <= 0;
       elsif ena = '1' then
-        cnt0 := cnt0 + 1;
+        cnt0 <= cnt0 + 1;
       end if;
     end if;
-    cnt <= std_logic_vector(to_unsigned(cnt0, BITS));
   end process;
+  cnt <= std_logic_vector(to_unsigned(cnt0, BITS));
 end architecture;

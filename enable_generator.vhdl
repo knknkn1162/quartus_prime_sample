@@ -10,7 +10,7 @@ entity enable_generator is
 end entity;
 
 architecture behavior of enable_generator is
-  signal cnt : natural range 0 to N-1;
+  signal cnt : natural range 0 to N;
 begin
   process(clk, rst)
   begin
@@ -24,5 +24,5 @@ begin
       end if;
     end if;
   end process;
-  ena <= '1' when ena = '1' else '0';
+  ena <= '1' when cnt = N else '0';
 end architecture;
