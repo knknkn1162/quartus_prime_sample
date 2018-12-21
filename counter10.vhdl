@@ -17,8 +17,12 @@ begin
     if rst = '1' then
       cnt0 := 0;
     elsif rising_edge(clk) then
-      cnt0 := cnt0 + 1;
+      if cnt0 = 9 then
+        cnt0 := 0;
+      else
+        cnt0 := cnt0 + 1;
+      end if;
     end if;
-    cnt <= std_logic_vector(to_signed(cnt0, 4));
+    cnt <= std_logic_vector(to_unsigned(cnt0, 4));
   end process;
 end architecture;
