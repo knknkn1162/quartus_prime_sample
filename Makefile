@@ -16,7 +16,7 @@ TESTBENCHES=$(addsuffix _tb, ${TESTS})
 .PHONY: all clean open
 all: $(OBJS) $(TESTBENCHES)
 clean:
-	rm -f work-obj93.cf *.o *.vcd
+	git ls-files --others --ignored --exclude-standard | xargs rm -rfv
 open:
 	open out.vcd
 
