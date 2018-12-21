@@ -1,6 +1,7 @@
 GHDLC=ghdl
-VCDFILE=../out.vcd
-FLAGS=--warn-error --workdir=../
+WORKDIR=.
+VCDFILE=${WORKDIR}/out.vcd
+FLAGS=--warn-error --workdir=${WORKDIR}/
 #TB_OPTION=--assert-level=error
 MODULES=\
 	countern \
