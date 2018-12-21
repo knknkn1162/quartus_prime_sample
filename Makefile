@@ -4,7 +4,8 @@ FLAGS=--warn-error --workdir=../
 TB_OPTION=--assert-level=error
 MODULES=\
 	countern \
-	decoder
+	decoder \
+	ena
 TESTS=\
 	countern
 OBJS=$(addsuffix .o, ${MODULES})
