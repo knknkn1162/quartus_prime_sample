@@ -5,10 +5,13 @@ FLAGS=--warn-error --workdir=../
 MODULES=\
 	countern \
 	decoder \
-	enable_generator
+	enable_generator \
+	secs \
+	sec10
 TESTS=\
 	countern \
-	enable_generator
+	enable_generator \
+	secs
 OBJS=$(addsuffix .o, ${MODULES})
 TESTBENCHES=$(addsuffix _tb, ${TESTS})
 
