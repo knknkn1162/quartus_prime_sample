@@ -9,13 +9,14 @@ architecture testbench of countern_tb is
     generic(N : natural; BITS: natural);
     port (
       clk, rst : in std_logic;
+      ena : in std_logic;
       cnt : out std_logic_vector(3 downto 0)
     );
   end component;
 
   constant N : natural := 10;
   constant BITS : natural := 4;
-  signal clk, rst : std_logic;
+  signal clk, rst, ena : std_logic;
   signal cnt : std_logic_vector(BITS-1 downto 0);
   constant clk_period : time := 10 ns;
   signal stop : boolean;
@@ -23,7 +24,7 @@ architecture testbench of countern_tb is
 begin
   uut : countern generic map (N=>N, BITS=>BITS)
   port map (
-    clk => clk, rst => rst,
+    clk => clk, rst => rst, ena => ena,
     cnt => cnt
   );
 
@@ -39,7 +40,7 @@ begin
   stim_proc : process
   begin
     wait for clk_period;
-    rst <= '1'; wait for 1 ns; rst <= '0';
+    rst <= '1'; ena <= '1'; wait for 1 ns; rst <= '0';
     assert cnt = "0000";
     wait until rising_edge(clk); wait for 1 ns;
     assert cnt = "0001";
