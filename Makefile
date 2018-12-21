@@ -3,7 +3,8 @@ VCDFILE=../out.vcd
 FLAGS=--warn-error --workdir=../
 TB_OPTION=--assert-level=error
 MODULES=\
-	countern
+	countern \
+	decoder
 TESTS=\
 	countern
 OBJS=$(addsuffix .o, ${MODULES})
