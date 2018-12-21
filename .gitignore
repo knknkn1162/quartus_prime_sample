@@ -1,0 +1,7 @@
+*
+!Makefile
+!*.*
+*.o
+*.vcd
+work-obj93.cf
+!*/*
