@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity ena is
+entity enable_generator is
   generic(N : natural);
   port (
     clk, rst : in std_logic;
@@ -9,7 +9,7 @@ entity ena is
   );
 end entity;
 
-architecture behavior of ena is
+architecture behavior of enable_generator is
   signal cnt : natural range 0 to N-1;
 begin
   process(clk, rst)

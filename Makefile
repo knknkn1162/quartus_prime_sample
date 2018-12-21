@@ -1,13 +1,14 @@
 GHDLC=ghdl
 VCDFILE=../out.vcd
 FLAGS=--warn-error --workdir=../
-TB_OPTION=--assert-level=error
+#TB_OPTION=--assert-level=error
 MODULES=\
 	countern \
 	decoder \
-	ena
+	enable_generator
 TESTS=\
-	countern
+	countern \
+	enable_generator
 OBJS=$(addsuffix .o, ${MODULES})
 TESTBENCHES=$(addsuffix _tb, ${TESTS})
 
