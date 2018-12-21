@@ -1,24 +1,28 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity counter10_tb is
+entity countern_tb is
 end entity;
 
-architecture testbench of counter10_tb is
-  component counter10 is
+architecture testbench of countern_tb is
+  component countern
+    generic(N : natural; BITS: natural);
     port (
       clk, rst : in std_logic;
       cnt : out std_logic_vector(3 downto 0)
     );
   end component;
 
+  constant N : natural := 10;
+  constant BITS : natural := 4;
   signal clk, rst : std_logic;
-  signal cnt : std_logic_vector(3 downto 0);
+  signal cnt : std_logic_vector(BITS-1 downto 0);
   constant clk_period : time := 10 ns;
   signal stop : boolean;
 
 begin
-  uut : counter10 port map (
+  uut : countern generic map (N=>N, BITS=>BITS)
+  port map (
     clk => clk, rst => rst,
     cnt => cnt
   );

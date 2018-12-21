@@ -3,9 +3,9 @@ VCDFILE=../out.vcd
 FLAGS=--warn-error --workdir=../
 TB_OPTION=--assert-level=error
 MODULES=\
-	counter10
+	countern
 TESTS=\
-	counter10
+	countern
 OBJS=$(addsuffix .o, ${MODULES})
 TESTBENCHES=$(addsuffix _tb, ${TESTS})
 
